@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructures", "Infrastructures", "{7F135A61-F683-4CE0-A7EF-E43452A2E19A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OShop.Infrastructures.Persistence", "src\OShop.Infrastructures.DataAccess\OShop.Infrastructures.Persistence.csproj", "{1424AE2F-632A-44BB-9F2A-E79A91B339EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OShop.Infrastructures.Persistence", "src\OShop.Infrastructures.Persistence\OShop.Infrastructures.Persistence.csproj", "{1424AE2F-632A-44BB-9F2A-E79A91B339EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{964C1621-8593-4778-8301-F8FF6A38DE3C}"
 EndProject
