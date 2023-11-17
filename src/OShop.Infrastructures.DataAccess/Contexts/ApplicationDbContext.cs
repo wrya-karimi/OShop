@@ -2,7 +2,7 @@
 using OShop.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 
-namespace OShop.Infrastructures.DataAccess.DbContexts
+namespace OShop.Infrastructures.Persistence.Contexts
 {
     public class ApplicationDbContext : DbContext
     {
