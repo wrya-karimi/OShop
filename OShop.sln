@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OShop.Domain.Entities", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OShop.Domain.Abstracts", "src\OShop.Domain.Abstracts\OShop.Domain.Abstracts.csproj", "{F85E4185-6A23-4602-9292-54B318730985}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OShop.Domain.Application", "OShop.Domain.Application\OShop.Domain.Application.csproj", "{3B4B2ECD-9E13-4BDE-BEAE-4D2247E79352}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OShop.Domain.Application", "src\OShop.Domain.Application\OShop.Domain.Application.csproj", "{3B4B2ECD-9E13-4BDE-BEAE-4D2247E79352}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
