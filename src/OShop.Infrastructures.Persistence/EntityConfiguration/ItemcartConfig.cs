@@ -1,4 +1,4 @@
-﻿namespace OShop.Domain.Entities.EntityConfiguration
+﻿namespace OShop.Infrastructures.Persistence.EntityConfiguration
 {
     public class ItemcartConfig
     {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OShop.Domain.Entities;
+using OShop.Infrastructures.Persistence.EntityConfiguration;
 using System.ComponentModel.DataAnnotations;
 
 namespace OShop.Infrastructures.Persistence.Contexts
@@ -23,7 +24,7 @@ namespace OShop.Infrastructures.Persistence.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.ApplyConfiguration(new ProductConfig());
         }
         public new DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
         {
