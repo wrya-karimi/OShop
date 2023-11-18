@@ -1,6 +1,6 @@
-﻿using Domain.Entities;
+﻿using OShop.Domain.Entities;
 
-namespace Services.Products
+namespace OShop.Domain.Abstracts.Application
 {
     public interface IProductService
     {

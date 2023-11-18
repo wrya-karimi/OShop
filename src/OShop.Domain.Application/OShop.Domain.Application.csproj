@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\ProductFeatures\Commands\" />
-    <Folder Include="Features\ProductFeatures\Queries\" />
+    <ProjectReference Include="..\OShop.Domain.Abstracts\OShop.Domain.Abstracts.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
 ﻿using Api.Dtos;
-using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using OShop.Domain.Abstracts.Application;
+using OShop.Domain.Entities;
 using Serilog;
-using Services.Categories;
 
 namespace Api.Controllers.V1
 {

@@ -1,10 +1,9 @@
 ﻿using Api.Dtos;
-using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using OShop.Domain.Abstracts.Application;
+using OShop.Domain.Entities;
 using Serilog;
-using Services.Products;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Api.Controllers.V1
 {

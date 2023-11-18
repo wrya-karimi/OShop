@@ -13,7 +13,7 @@ namespace OShop.Infrastructures.Persistence.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=OShopDB;User ID=sa;Password=***;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=OShopDB;User ID=sa;Password=123;TrustServerCertificate=True;");
         }
 
 

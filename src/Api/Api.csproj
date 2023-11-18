@@ -18,7 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\OShop.Domain.Abstracts\OShop.Domain.Abstracts.csproj" />
+    <ProjectReference Include="..\OShop.Domain.Application\OShop.Domain.Application.csproj" />
+    <ProjectReference Include="..\OShop.Infrastructures.Persistence\OShop.Infrastructures.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="logs\" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,11 @@
-using Data;
-using Data.Respositories.CategoryRepository;
-using Data.Respositories.ProductRepository;
+using OShop.Domain.Abstracts.Application;
+using OShop.Domain.Abstracts.Repositories.CategoryRepositories;
+using OShop.Domain.Abstracts.Repositories.ProductRepositories;
+using OShop.Domain.Application;
+using OShop.Infrastructures.Persistence.Contexts;
+using OShop.Infrastructures.Persistence.Respositories.CategoryRepositories;
+using OShop.Infrastructures.Persistence.Respositories.ProductRepositories;
 using Serilog;
-using Services.Categories;
-using Services.Products;
 
 internal class Program
 {
@@ -25,10 +27,14 @@ internal class Program
 
         builder.Host.UseSerilog();
 
-        builder.Services.AddScoped<ProductRepository>();
-        builder.Services.AddScoped<IProductRepository, CacheProductRepository>();
+        builder.Services.AddTransient<ProductReadRepository>();
+        builder.Services.AddTransient<IProductReadRepository, CacheProductReadRepository>();
+        builder.Services.AddTransient<IProductWriteRepository, ProductWriteRepository>();
 
-
+        //builder.Services.AddScoped<CategoryReadRepository>();
+        //builder.Services.AddScoped<ICategoryReadRepository, CacheCategoryReadRepository>();
+        builder.Services.AddTransient<ICategoryReadRepository, CategoryReadRepository>();
+        builder.Services.AddTransient<ICategoryWriteRepository, CategoryWriteRepository>();
 
         builder.Services.AddStackExchangeRedisCache(redisOptions =>
         {
@@ -37,9 +43,8 @@ internal class Program
         });
 
         builder.Services.AddTransient<ICategoryService, CategoryService>();
-        builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-
         builder.Services.AddTransient<IProductService, ProductService>();
+
         builder.Services.AddDbContext<ApplicationDbContext>();
 
         var app = builder.Build();

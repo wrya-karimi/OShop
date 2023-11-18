@@ -1,6 +1,11 @@
-﻿using Domain.Entities;
+﻿using OShop.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Services.Categories
+namespace OShop.Domain.Abstracts.Application
 {
     public interface ICategoryService
     {
