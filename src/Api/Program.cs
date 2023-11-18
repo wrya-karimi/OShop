@@ -27,14 +27,14 @@ internal class Program
 
         builder.Host.UseSerilog();
 
-        builder.Services.AddTransient<ProductReadRepository>();
-        builder.Services.AddTransient<IProductReadRepository, CacheProductReadRepository>();
-        builder.Services.AddTransient<IProductWriteRepository, ProductWriteRepository>();
+        builder.Services.AddScoped<ProductReadRepository>();
+        builder.Services.AddScoped<IProductReadRepository, CacheProductReadRepository>();
+        builder.Services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
 
         //builder.Services.AddScoped<CategoryReadRepository>();
         //builder.Services.AddScoped<ICategoryReadRepository, CacheCategoryReadRepository>();
-        builder.Services.AddTransient<ICategoryReadRepository, CategoryReadRepository>();
-        builder.Services.AddTransient<ICategoryWriteRepository, CategoryWriteRepository>();
+        builder.Services.AddScoped<ICategoryReadRepository, CategoryReadRepository>();
+        builder.Services.AddScoped<ICategoryWriteRepository, CategoryWriteRepository>();
 
         builder.Services.AddStackExchangeRedisCache(redisOptions =>
         {
@@ -42,8 +42,8 @@ internal class Program
             redisOptions.Configuration = connection;
         });
 
-        builder.Services.AddTransient<ICategoryService, CategoryService>();
-        builder.Services.AddTransient<IProductService, ProductService>();
+        builder.Services.AddScoped<ICategoryService, CategoryService>();
+        builder.Services.AddScoped<IProductService, ProductService>();
 
         builder.Services.AddDbContext<ApplicationDbContext>();
 
