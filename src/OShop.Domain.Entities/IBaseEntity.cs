@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace OShop.Domain.Entities
 {
-    public class ShoppingCart : BaseEntity
+    public interface IBaseEntity
     {
-        public virtual ICollection<Itemcart>? Products { get; set; }
+        DateTime CreateAt { get; set; }
+        DateTime LastModifiedAt { get; set; }
     }
 }

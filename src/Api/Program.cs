@@ -1,7 +1,7 @@
-using OShop.Domain.Abstracts.Application;
+using OShop.Domain.Abstracts.ApplicationServices;
 using OShop.Domain.Abstracts.Repositories.CategoryRepositories;
 using OShop.Domain.Abstracts.Repositories.ProductRepositories;
-using OShop.Domain.Application;
+using OShop.Domain.ApplicationServices;
 using OShop.Infrastructures.Persistence.Contexts;
 using OShop.Infrastructures.Persistence.Respositories.CategoryRepositories;
 using OShop.Infrastructures.Persistence.Respositories.ProductRepositories;
@@ -27,14 +27,14 @@ internal class Program
 
         builder.Host.UseSerilog();
 
-        builder.Services.AddScoped<ProductReadRepository>();
-        builder.Services.AddScoped<IProductReadRepository, CacheProductReadRepository>();
-        builder.Services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
+        builder.Services.AddScoped<ProductRepository>();
+        builder.Services.AddScoped<IProductRepository, CacheProductRepository>();
+
 
         //builder.Services.AddScoped<CategoryReadRepository>();
         //builder.Services.AddScoped<ICategoryReadRepository, CacheCategoryReadRepository>();
-        builder.Services.AddScoped<ICategoryReadRepository, CategoryReadRepository>();
-        builder.Services.AddScoped<ICategoryWriteRepository, CategoryWriteRepository>();
+        builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
 
         builder.Services.AddStackExchangeRedisCache(redisOptions =>
         {

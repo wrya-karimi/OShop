@@ -6,13 +6,13 @@ using OShop.Infrastructures.Persistence.Contexts;
 
 namespace OShop.Infrastructures.Persistence.Respositories.ProductRepositories
 {
-    public class CacheProductReadRepository : IProductReadRepository
+    public class CacheProductRepository : IProductRepository
     {
-        private readonly ProductReadRepository _decorated;
+        private readonly ProductRepository _decorated;
         private readonly IDistributedCache _distributedCache;
         private readonly ApplicationDbContext _context;
 
-        public CacheProductReadRepository(ProductReadRepository decorated, IDistributedCache distributedCache, ApplicationDbContext context)
+        public CacheProductRepository(ProductRepository decorated, IDistributedCache distributedCache, ApplicationDbContext context)
         {
             _decorated = decorated;
             _distributedCache = distributedCache;
@@ -47,11 +47,24 @@ namespace OShop.Infrastructures.Persistence.Respositories.ProductRepositories
             return product;
         }
 
-
         public Task<IEnumerable<Product>> GetAllAsync(params string[] IncludeProperties)
         {
             return _decorated.GetAllAsync(IncludeProperties);
         }
 
+        public Task AddAsync(Product entity)
+        {
+            return _decorated.AddAsync(entity);
+        }
+
+        public Task UpdateAsync(Product entity)
+        {
+            return _decorated.UpdateAsync(entity);
+        }
+
+        public Task DeleteAsync(int id)
+        {
+            return _decorated.DeleteAsync(id);
+        }
     }
 }

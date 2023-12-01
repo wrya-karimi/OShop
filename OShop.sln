@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OShop.Domain.Entities", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OShop.Domain.Abstracts", "src\OShop.Domain.Abstracts\OShop.Domain.Abstracts.csproj", "{F85E4185-6A23-4602-9292-54B318730985}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OShop.Domain.Application", "src\OShop.Domain.Application\OShop.Domain.Application.csproj", "{3B4B2ECD-9E13-4BDE-BEAE-4D2247E79352}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OShop.Domain.ApplicationServices", "src\OShop.Domain.ApplicationServices\OShop.Domain.ApplicationServices.csproj", "{D183BB05-65C8-42F5-81CA-E907AB46EAB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{F85E4185-6A23-4602-9292-54B318730985}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F85E4185-6A23-4602-9292-54B318730985}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F85E4185-6A23-4602-9292-54B318730985}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B4B2ECD-9E13-4BDE-BEAE-4D2247E79352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B4B2ECD-9E13-4BDE-BEAE-4D2247E79352}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B4B2ECD-9E13-4BDE-BEAE-4D2247E79352}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B4B2ECD-9E13-4BDE-BEAE-4D2247E79352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D183BB05-65C8-42F5-81CA-E907AB46EAB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D183BB05-65C8-42F5-81CA-E907AB46EAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D183BB05-65C8-42F5-81CA-E907AB46EAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D183BB05-65C8-42F5-81CA-E907AB46EAB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,7 +54,7 @@ Global
 		{1424AE2F-632A-44BB-9F2A-E79A91B339EF} = {7F135A61-F683-4CE0-A7EF-E43452A2E19A}
 		{DEC0A40D-B77B-462F-A683-037E02289FE1} = {964C1621-8593-4778-8301-F8FF6A38DE3C}
 		{F85E4185-6A23-4602-9292-54B318730985} = {964C1621-8593-4778-8301-F8FF6A38DE3C}
-		{3B4B2ECD-9E13-4BDE-BEAE-4D2247E79352} = {964C1621-8593-4778-8301-F8FF6A38DE3C}
+		{D183BB05-65C8-42F5-81CA-E907AB46EAB7} = {964C1621-8593-4778-8301-F8FF6A38DE3C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DDAFC2FB-578F-4A5E-8BFC-C4E096A56A80}

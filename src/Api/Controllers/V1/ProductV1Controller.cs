@@ -1,6 +1,6 @@
 ﻿using Api.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using OShop.Domain.Abstracts.Application;
+using OShop.Domain.Abstracts.ApplicationServices;
 using OShop.Domain.Entities;
 using Serilog;
 
@@ -27,7 +27,7 @@ namespace Api.Controllers.V1
         {
             try
             {
-                var product = await _productServicee.GetProductById(id);
+                var product = await _productServicee.GetProductByIdAsync(id);
                 if (product is null)
                 {
                     return NotFound();
@@ -58,7 +58,7 @@ namespace Api.Controllers.V1
                     Discount = productDto.Discount,
                     ImagePath = productDto.ImagePath
                 };
-                await _productServicee.InsertProduct(product);
+                await _productServicee.InsertProductAsync(product);
                 return Ok();
             }
             catch (Exception ex)
@@ -69,8 +69,28 @@ namespace Api.Controllers.V1
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<ActionResult> Put([FromBody] ProductDto productDto)
         {
+            try
+            {
+                var product = new Product
+                {
+                    Id = productDto.Id,
+                    CategoryId = productDto.CategoryId,
+                    Name = productDto.Name,
+                    Description = productDto.Description,
+                    Price = productDto.Price,
+                    Discount = productDto.Discount,
+                    ImagePath = productDto.ImagePath
+                };
+                await _productServicee.UpdateProductAsync(product);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Product Create => {@ex}", ex.Message);
+                return Problem();
+            }
         }
 
 
@@ -82,7 +102,7 @@ namespace Api.Controllers.V1
         {
             try
             {
-                var products = await _productServicee.GetAllProductsByCategory(cId);
+                var products = await _productServicee.GetProductsAsync(cId);
                 if (products is null)
                 {
                     return NotFound();
@@ -117,14 +137,14 @@ namespace Api.Controllers.V1
         {
             try
             {
-                var product = await _productServicee.GetProductById(id);
+                var product = await _productServicee.GetProductByIdAsync(id);
                 if (product is null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    await _productServicee.DeleteProduct(id);
+                    await _productServicee.DeleteProductAsync(id);
                     return NoContent();
                 }
             }

@@ -26,40 +26,40 @@ namespace OShop.Infrastructures.Persistence.Contexts
         {
             modelBuilder.ApplyConfiguration(new ProductConfig());
         }
-        public new DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
-        {
-            return base.Set<TEntity>();
-        }
+        //public new DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        //{
+        //    return base.Set<TEntity>();
+        //}
 
-        public override int SaveChanges()
-        {
-            var entities = from e in ChangeTracker.Entries()
-                           where e.State == EntityState.Added
-                               || e.State == EntityState.Modified
-                           select e.Entity;
-            foreach (var entity in entities)
-            {
+        //public override int SaveChanges()
+        //{
+        //    var entities = from e in ChangeTracker.Entries()
+        //                   where e.State == EntityState.Added
+        //                       || e.State == EntityState.Modified
+        //                   select e.Entity;
+        //    foreach (var entity in entities)
+        //    {
 
-                var validationContext = new ValidationContext(entity);
-                Validator.ValidateObject(entity, validationContext);
+        //        var validationContext = new ValidationContext(entity);
+        //        Validator.ValidateObject(entity, validationContext);
 
-            }
-            return base.SaveChanges();
-        }
+        //    }
+        //    return base.SaveChanges();
+        //}
 
-        public Task<int> SaveChangesAsync()
-        {
-            var entities = from e in ChangeTracker.Entries()
-                           where e.State == EntityState.Added
-                               || e.State == EntityState.Modified
-                           select e.Entity;
-            foreach (var entity in entities)
-            {
+        //public Task<int> SaveChangesAsync()
+        //{
+        //    var entities = from e in ChangeTracker.Entries()
+        //                   where e.State == EntityState.Added
+        //                       || e.State == EntityState.Modified
+        //                   select e.Entity;
+        //    foreach (var entity in entities)
+        //    {
 
-                var validationContext = new ValidationContext(entity);
-                Validator.ValidateObject(entity, validationContext);
-            }
-            return base.SaveChangesAsync();
-        }
+        //        var validationContext = new ValidationContext(entity);
+        //        Validator.ValidateObject(entity, validationContext);
+        //    }
+        //    return base.SaveChangesAsync();
+        //}
     }
 }

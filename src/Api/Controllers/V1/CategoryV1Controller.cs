@@ -1,6 +1,6 @@
 ﻿using Api.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using OShop.Domain.Abstracts.Application;
+using OShop.Domain.Abstracts.ApplicationServices;
 using OShop.Domain.Entities;
 using Serilog;
 
@@ -26,7 +26,7 @@ namespace Api.Controllers.V1
         {
             try
             {
-                var category = await _categoryServicee.GetCategoryById(id);
+                var category = await _categoryServicee.GetCategoryByIdAsync(id);
                 if (category is null)
                 {
                     return NotFound();
@@ -54,7 +54,7 @@ namespace Api.Controllers.V1
                     CategoryName = categoryDto.CategoryName,
                     Description = categoryDto.Description
                 };
-                await _categoryServicee.InsertCategory(category);
+                await _categoryServicee.InsertCategoryAsync(category);
                 return Ok();
             }
             catch (Exception ex)
@@ -65,8 +65,24 @@ namespace Api.Controllers.V1
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<ActionResult> Put(CategoryDto categoryDto)
         {
+            try
+            {
+                var category = new Category
+                {
+                    Id = categoryDto.Id,
+                    CategoryName = categoryDto.CategoryName,
+                    Description = categoryDto.Description
+                };
+                await _categoryServicee.UpdateCategoryAsync(category);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Category Put => {@ex}", ex.Message);
+                return Problem();
+            }
         }
 
 
@@ -78,7 +94,7 @@ namespace Api.Controllers.V1
         {
             try
             {
-                var categorys = await _categoryServicee.GetAll();
+                var categorys = await _categoryServicee.GetCategoriesAsync();
                 if (categorys is null)
                 {
                     return NotFound();
@@ -108,14 +124,14 @@ namespace Api.Controllers.V1
         {
             try
             {
-                var category = await _categoryServicee.GetCategoryById(id);
+                var category = await _categoryServicee.GetCategoryByIdAsync(id);
                 if (category is null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    await _categoryServicee.DeleteCategory(id);
+                    await _categoryServicee.DeleteCategoryAsync(id);
                     return NoContent();
                 }
             }

@@ -9,9 +9,7 @@ namespace OShop.Domain.Entities
     public class Itemcart : BaseEntity
     {
         public int Quantity { get; set; }
-
         public int ProductId { get; set; }
-
         public virtual Product? Product { get; set; }
     }
 }
