@@ -16,12 +16,12 @@ namespace OShop.Infrastructures.Persistence.Respositories.BaseRepositories
 
         public async Task<T> FindByIdAsync(int id)
         {
-            return await _context.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<T>> GetAllAsync(params string[] IncludeProperties)
         {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
 
         public async Task AddAsync(T entity)
